@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_PASSWORD: w37eryhsweywse5uj
+
+  mysql:
+    image: mariadb:10.3
+    environment:
+        MYSQL_ROOT_PASSWORD: w37eryhsweywse5uj
+        # MYSQL_DATABASE: ${MYSQL_DATABASE}
+        # MYSQL_USER: ${MYSQL_USER}
+        # MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+        - "./db:/var/lib/mysql"
+    ports:
+        - "3306:3306"
